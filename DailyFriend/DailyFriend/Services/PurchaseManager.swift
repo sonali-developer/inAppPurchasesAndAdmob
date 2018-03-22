@@ -6,6 +6,8 @@
 //  Copyright © 2018 Sonali Patel. All rights reserved.
 //
 
+typealias CompletionHandler = (_ success: Bool) -> ()
+
 import Foundation
 import StoreKit
 
@@ -17,6 +19,7 @@ class PurchaseManager: NSObject, SKProductsRequestDelegate,SKPaymentTransactionO
     
     var productsRequest: SKProductsRequest!
     var products = [SKProduct]()
+    var transcationComplete: CompletionHandler?
     
     func fetchProducts() {
         let productIds = NSSet(object: IAP_REMOVE_ADS) as! Set<String>
@@ -25,12 +28,15 @@ class PurchaseManager: NSObject, SKProductsRequestDelegate,SKPaymentTransactionO
         productsRequest.start()
     }
     
-    func purchaseRemoveAds() {
+    func purchaseRemoveAds(onComplete: @escaping CompletionHandler) {
         if SKPaymentQueue.canMakePayments() && products.count > 0 {
+            transcationComplete = onComplete
             let removeAdsProduct = products[0]
             let payment = SKPayment(product: removeAdsProduct)
             SKPaymentQueue.default().add(self)
             SKPaymentQueue.default().add(payment)
+        } else {
+            onComplete(false)
         }
     }
     
@@ -52,13 +58,16 @@ class PurchaseManager: NSObject, SKProductsRequestDelegate,SKPaymentTransactionO
             SKPaymentQueue.default().finishTransaction(transaction)
             if transaction.payment.productIdentifier == IAP_REMOVE_ADS {
                 UserDefaults.standard.set(true, forKey: IAP_REMOVE_ADS)
+                transcationComplete?(true)
             }
             break
             case .failed:
              SKPaymentQueue.default().finishTransaction(transaction)
+                transcationComplete?(false)
             case .restored:
              SKPaymentQueue.default().finishTransaction(transaction)
-            default:
+                transcationComplete?(true)
+            default: transcationComplete?(false)
                 break
             }
         }
