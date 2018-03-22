@@ -15,21 +15,27 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUpAds()
+    }
+    
+    func setUpAds() {
         if UserDefaults.standard.bool(forKey: PurchaseManager.instance.IAP_REMOVE_ADS)  {
-                removeAdsBtn.removeFromSuperview()
-                bannerView.removeFromSuperview()
+            removeAdsBtn.removeFromSuperview()
+            bannerView.removeFromSuperview()
         } else {
             bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
             bannerView.rootViewController = self
             bannerView.load(GADRequest())
         }
-       
     }
 
-
+    @IBAction func restoreBtnPressed(_ sender: Any) {
+        PurchaseManager.instance.restorePurchases { (success) in
+           self.setUpAds()
+        }
+    }
     @IBAction func removeAdsPressed(_ sender: Any) {
-        print("Remove Ads pressed")
+        
         //Show a loading spinner Activity Indicator
         PurchaseManager.instance.purchaseRemoveAds { (success) in
             //dismiss the spinner

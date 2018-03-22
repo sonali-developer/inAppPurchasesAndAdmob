@@ -323,6 +323,7 @@
 				);
 				INFOPLIST_FILE = DailyFriend/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"MTL_ENABLE_DEBUG_INFO[arch=*]" = disable;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.developer.sonali.DailyFriend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
