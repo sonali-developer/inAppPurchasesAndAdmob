@@ -8,24 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		3B3A313C2061E90E009A90ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3A313B2061E90E009A90ED /* AppDelegate.swift */; };
-		3B3A313E2061E90E009A90ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3A313D2061E90E009A90ED /* ViewController.swift */; };
+		3B3A313E2061E90E009A90ED /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3A313D2061E90E009A90ED /* HomeViewController.swift */; };
 		3B3A31412061E90E009A90ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B3A313F2061E90E009A90ED /* Main.storyboard */; };
 		3B3A31432061E90E009A90ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3A31422061E90E009A90ED /* Assets.xcassets */; };
 		3B3A31462061E90E009A90ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B3A31442061E90E009A90ED /* LaunchScreen.storyboard */; };
 		3B3A314F2061EC58009A90ED /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3A314E2061EC58009A90ED /* StoreKit.framework */; };
 		3B3A31512061EEB9009A90ED /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3A31502061EEB9009A90ED /* GoogleMobileAds.framework */; };
+		3B3A3155206319D0009A90ED /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3A3154206319D0009A90ED /* PurchaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B3A31382061E90E009A90ED /* DailyFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3A313B2061E90E009A90ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B3A313D2061E90E009A90ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B3A313D2061E90E009A90ED /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3B3A31402061E90E009A90ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B3A31422061E90E009A90ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B3A31452061E90E009A90ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B3A31472061E90E009A90ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B3A314E2061EC58009A90ED /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3B3A31502061EEB9009A90ED /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		3B3A3154206319D0009A90ED /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +63,9 @@
 		3B3A313A2061E90E009A90ED /* DailyFriend */ = {
 			isa = PBXGroup;
 			children = (
+				3B3A3153206319AB009A90ED /* Services */,
+				3B3A31522063196B009A90ED /* Controller */,
 				3B3A313B2061E90E009A90ED /* AppDelegate.swift */,
-				3B3A313D2061E90E009A90ED /* ViewController.swift */,
 				3B3A313F2061E90E009A90ED /* Main.storyboard */,
 				3B3A31422061E90E009A90ED /* Assets.xcassets */,
 				3B3A31442061E90E009A90ED /* LaunchScreen.storyboard */,
@@ -78,6 +81,22 @@
 				3B3A314E2061EC58009A90ED /* StoreKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B3A31522063196B009A90ED /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3B3A313D2061E90E009A90ED /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3B3A3153206319AB009A90ED /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3B3A3154206319D0009A90ED /* PurchaseManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,7 +176,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B3A313E2061E90E009A90ED /* ViewController.swift in Sources */,
+				3B3A313E2061E90E009A90ED /* HomeViewController.swift in Sources */,
+				3B3A3155206319D0009A90ED /* PurchaseManager.swift in Sources */,
 				3B3A313C2061E90E009A90ED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
